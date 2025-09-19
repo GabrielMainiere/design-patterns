@@ -7,7 +7,7 @@ export class ThresholdStrategy implements AlertStrategy{
     constructor( private buy : number, private sell : number){}
 
     async check(value : number) : Promise<void>{
-        if (value > this.buy) {
+        if (value < this.buy) {
             console.log(`ALERT! Low price to buy! (${value})`);
         }
         if (value > this.sell) {

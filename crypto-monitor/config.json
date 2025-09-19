@@ -2,7 +2,7 @@
   "defaultCoin": "bitcoin",
   "threshold": {
     "buy": 100000,
-    "sell": 250000
+    "sell": 115000
   },
   "variation": {
     "percent": 3,
