@@ -1,0 +1,11 @@
+{
+  "defaultCoin": "bitcoin",
+  "threshold": {
+    "buy": 100000,
+    "sell": 250000
+  },
+  "variation": {
+    "percent": 5,
+    "minutes": 10
+  }
+}
