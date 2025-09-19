@@ -5,7 +5,7 @@
     "sell": 250000
   },
   "variation": {
-    "percent": 5,
+    "percent": 3,
     "minutes": 10
   }
 }
