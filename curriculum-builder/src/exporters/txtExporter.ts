@@ -4,18 +4,18 @@ import * as fs from "fs";
 
 export class TxtExporter implements IExporter {
 
-  async export(resume: Resume, filename: string): Promise<void> {
-    let content = `Nome: ${resume.name}\nContato: ${resume.contact}\n\nExperiências:\n`;
-    resume.experiences.forEach((exp) => {
-      content += `- ${exp.role} na ${exp.enterprise} (${exp.period})\n`;
-    });
+    async export(resume: Resume, filename: string): Promise<void> {
+        let content = `Name: ${resume.name}\nContact: ${resume.contact}\n\nExperiences:\n`;
+        resume.experiences.forEach((exp) => {
+        content += `- ${exp.role} at ${exp.enterprise} (${exp.period})\n`;
+        });
 
-    content += `\nFormação Acadêmica:\n`;
-    resume.academicBackground.forEach((edu) => {
-      content += `- ${edu.degree} na ${edu.institution} (${edu.period})\n`;
-    });
+        content += `\nAcademic Background:\n`;
+        resume.academicBackground.forEach((edu) => {
+        content += `- ${edu.degree} at ${edu.institution} (${edu.period})\n`;
+        });
 
-    fs.writeFileSync(`${filename}.txt`, content);
-    console.log(`Currículo exportado para ${filename}.txt`);
-  }
+        fs.writeFileSync(`${filename}.txt`, content);
+        console.log(`Resume exported to ${filename}.txt`);
+    }
 }

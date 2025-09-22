@@ -6,7 +6,7 @@ export class ExporterFactory {
 
     static create (format : string): IExporter {
         switch (format) {
-            case "Json":
+            case "json":
                 return new JsonExporter();
             case "txt" :
                 return new TxtExporter();
