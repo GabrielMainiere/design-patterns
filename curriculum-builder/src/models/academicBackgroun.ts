@@ -1,8 +1,8 @@
 export class AcademicBackground {
-
+    
     constructor(
-        degree : string,
-        instituition : string,
-        period : string
-    ){}
+        public degree: string,
+        public institution: string,
+        public period: string
+    ) {}
 }

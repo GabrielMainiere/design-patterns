@@ -19,8 +19,8 @@ export class ResumeBuilder {
         return this;
     }
 
-    addExperience(role: string, company: string, period: string): this {
-        this.resume.experiences.push(new Experience(role, company, period));
+    addExperience(enterprise : string, role : string, description : string, period : string): this {
+        this.resume.experiences.push(new Experience(enterprise, role, description, period));
         return this;
     }
 

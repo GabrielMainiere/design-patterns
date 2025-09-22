@@ -1,8 +1,9 @@
 export class Experience {
 
     constructor(
-        enterprise : string,
-        description : string,
-        period : string
-    ){}
+        public enterprise: string,
+        public role: string,
+        public description : string,
+        public period: string
+    ) {}
 }
