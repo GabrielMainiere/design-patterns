@@ -16,19 +16,28 @@ export class ThresholdStrategy implements AlertStrategy{
     }
 }
 
-export class VariationStrategy implements AlertStrategy{
-    private lastPrice: number | null = null;
+export class VariationStrategy implements AlertStrategy {
+  private lastPrice: number | null = null;
+  private lastTimestamp: number | null = null;
 
-    constructor(private percent : number){}
+  constructor(private percent: number, private minutes: number) {}
 
-    async check(value: number): Promise<void> {
-        
-        if (this.lastPrice) {
-            const difference = (Math.abs(value - this.lastPrice) / this.lastPrice) * 100;
-            if (difference > this.percent) {
-                console.log(`ALERT! ! Variation of ${difference.toFixed(2)}%`);
-            }
+  async check(value: number): Promise<void> {
+    const now = Date.now();
+
+    if (this.lastPrice !== null && this.lastTimestamp !== null) {
+      const minutesPassed = (now - this.lastTimestamp) / (1000 * 60);
+      
+      if (minutesPassed <= this.minutes) {
+        const difference = (Math.abs(value - this.lastPrice) / this.lastPrice) * 100;
+        if (difference > this.percent) {
+          console.log(
+            `ALERT! Variation of ${difference.toFixed(2)}% in ${minutesPassed.toFixed(1)} minutes`
+          );
         }
-        this.lastPrice = value;
+      }
     }
+    this.lastPrice = value;
+    this.lastTimestamp = now;
+  }
 }

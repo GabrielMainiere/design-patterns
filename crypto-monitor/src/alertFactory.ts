@@ -2,7 +2,7 @@ import { AlertStrategy, ThresholdStrategy, VariationStrategy } from "./alertStra
 
 type AlertConfig =
   | { type: "threshold"; buy: number; sell: number }
-  | { type: "variation"; percent: number };
+  | { type: "variation"; percent: number; minutes : number };
 
 export class AlertFactory{
 
@@ -12,7 +12,7 @@ export class AlertFactory{
             case "threshold":
                 return new ThresholdStrategy(config.buy, config.sell);
             case "variation":
-                return new VariationStrategy(config.percent);
+                return new VariationStrategy(config.percent, config.minutes);
         }
     }
 }

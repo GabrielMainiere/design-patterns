@@ -15,7 +15,8 @@ const thresholdAlert: AlertStrategy = AlertFactory.create({
 
 const variationAlert: AlertStrategy = AlertFactory.create({
   type: "variation",
-  percent: config.variation.percent
+  percent: config.variation.percent,
+  minutes : config.variation.minutes
 });
 
 async function main() {
