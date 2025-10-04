@@ -18,7 +18,7 @@ export class Editor {
     }
 
     save(): Memento {
-        return new Memento(this.lines);
+        return new Memento([...this.lines]);
     }
 
     restore(memento: Memento): void {
